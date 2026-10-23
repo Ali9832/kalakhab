@@ -444,34 +444,46 @@
       <div
         class="h-20 max-w-[1340px] mx-auto px-margin-mobile md:px-margin flex items-center justify-between gap-space-md">
         <!-- Logo & Category Nav -->
-        <div class="flex items-center gap-8">
-          <a class="flex items-center gap-3 group" data-path="home" href="#">
+        <div class="flex items-center gap-2.5 sm:gap-5 flex-nowrap shrink-0">
+          <!-- Mobile Hamburger Toggle Button -->
+          <button id="mobile-menu-btn" aria-label="منوی سایت" onclick="toggleMobileMenu(true)"
+            class="xl:hidden w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface transition-colors shrink-0"
+            type="button">
+            <span class="material-symbols-outlined text-[24px]">menu</span>
+          </button>
+          <a class="flex items-center gap-2.5 group shrink-0" data-path="home" href="index.html">
             <div
-              class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center text-on-primary shadow-md shadow-primary/25 group-hover:scale-105 transition-transform">
-              <span class="material-symbols-outlined text-[26px]">bed</span>
+              class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center text-on-primary shadow-md shadow-primary/25 group-hover:scale-105 transition-transform">
+              <span class="material-symbols-outlined text-[22px]">bed</span>
             </div>
             <div class="flex flex-col text-right">
               <span
-                class="text-xl font-black text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">آرونیکا</span>
-              <span class="text-[10px] text-outline font-semibold tracking-wider mt-0.5">ARONIKA SLEEP SHOP</span>
+                class="text-lg font-black text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">آرونیکا</span>
+              <span class="text-[9px] text-outline font-semibold tracking-wider mt-0.5">ARONIKA SLEEP</span>
             </div>
           </a>
-          <nav class="hidden xl:flex items-center gap-1">
-            <a class="px-3.5 py-2 rounded-xl text-sm font-semibold text-primary bg-primary/10 transition-all flex items-center gap-1.5"
-              data-path="mattresses" href="#featured-mattresses">
-              <span class="material-symbols-outlined text-[18px]">bed</span>
-              <span class="">تشک‌های هایبرید</span>
+          <nav class="hidden xl:flex items-center gap-1 shrink-0 whitespace-nowrap">
+            <a class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-primary bg-primary/10 transition-all flex items-center gap-1 whitespace-nowrap"
+              href="index.html">
+              <span class="material-symbols-outlined text-[16px]">home</span>
+              <span>صفحه نخست</span>
             </a>
-            <a class="px-3.5 py-2 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all"
-              data-path="orthopedic" href="#featured-mattresses">تشک‌های ارتوپدیک</a>
-            <a class="px-3.5 py-2 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all"
+            <a class="px-2.5 py-1.5 rounded-lg text-xs font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all flex items-center gap-1 whitespace-nowrap"
+              href="catalog.html">
+              <span class="material-symbols-outlined text-[16px]">storefront</span>
+              <span>کاتالوگ محصولات</span>
+            </a>
+            <a class="px-2.5 py-1.5 rounded-lg text-xs font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all flex items-center gap-1 whitespace-nowrap"
+              href="product.html">
+              <span class="material-symbols-outlined text-[16px]">bed</span>
+              <span>بررسی تخصصی</span>
+            </a>
+            <a class="px-2.5 py-1.5 rounded-lg text-xs font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all whitespace-nowrap"
               data-path="ergonomic-technology" href="#anatomy-section">آناتومی ۵ لایه</a>
-            <a class="px-3.5 py-2 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all"
+            <a class="px-2.5 py-1.5 rounded-lg text-xs font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all whitespace-nowrap"
               data-path="quiz" href="#quiz-matcher">تست هوشمند خواب</a>
-            <a class="px-3.5 py-2 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all"
+            <a class="px-2.5 py-1.5 rounded-lg text-xs font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all whitespace-nowrap"
               data-path="craftsmanship" href="#craftsmanship-section">داستان کارگاه</a>
-            <a class="px-3.5 py-2 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all"
-              data-path="reviews" href="#reviews-section">تأییدیه پزشکان</a>
           </nav>
         </div>
         <!-- E-commerce Action Icons & Buttons -->
@@ -507,40 +519,148 @@
         </div>
       </div>
     </div>
+    <!-- Mobile Navigation Drawer & Backdrop -->
+    <div id="mobile-menu-drawer" class="fixed inset-0 z-[100] pointer-events-none transition-all duration-300">
+      <!-- Backdrop Overlay -->
+      <div id="mobile-menu-backdrop" onclick="toggleMobileMenu(false)"
+        class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+
+      <!-- Slide-out Drawer Panel (from right in RTL) -->
+      <div id="mobile-menu-panel"
+        class="absolute top-0 right-0 bottom-0 w-[310px] max-w-[85vw] bg-surface-container-lowest shadow-2xl flex flex-col justify-between translate-x-full transition-transform duration-300 ease-out pointer-events-auto border-l border-surface-container-high overflow-y-auto">
+        <div>
+          <!-- Drawer Header -->
+          <div class="p-4 border-b border-surface-container-high/60 flex items-center justify-between bg-surface-container-low/50">
+            <a class="flex items-center gap-2.5" href="index.html" onclick="toggleMobileMenu(false)">
+              <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center text-on-primary shadow-sm">
+                <span class="material-symbols-outlined text-[20px]">bed</span>
+              </div>
+              <div class="flex flex-col text-right">
+                <span class="text-base font-black text-on-surface leading-tight">آرونیکا</span>
+                <span class="text-[9px] text-outline font-semibold">ARONIKA SLEEP SHOP</span>
+              </div>
+            </a>
+            <button aria-label="بستن منو" onclick="toggleMobileMenu(false)"
+              class="w-9 h-9 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant transition-colors" type="button">
+              <span class="material-symbols-outlined text-[20px]">close</span>
+            </button>
+          </div>
+
+          <!-- Drawer Navigation Links -->
+          <div class="p-3 flex flex-col gap-1.5 text-right font-medium">
+            <a href="index.html" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs font-bold text-primary bg-primary/10 transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px]">home</span>
+                <span>صفحه نخست</span>
+              </div>
+              <span class="material-symbols-outlined text-[16px] rotate-180">chevron_right</span>
+            </a>
+
+            <a href="catalog.html" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs text-on-surface hover:bg-surface-container hover:text-primary transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px] text-primary">storefront</span>
+                <span>کاتالوگ و فروشگاه تشک‌ها</span>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-rose-500/10 text-rose-600 text-[10px] font-bold">۱۵٪ تخفیف</span>
+            </a>
+
+            <a href="product.html" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs text-on-surface hover:bg-surface-container hover:text-primary transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px] text-primary">bed</span>
+                <span>بررسی تخصصی اسپاین‌گارد پرو</span>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 text-[10px] font-bold">پرفروش</span>
+            </a>
+
+            <a href="#anatomy-section" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px] text-outline">layers</span>
+                <span>آناتومی ۵ لایه تشک</span>
+              </div>
+              <span class="material-symbols-outlined text-[16px] text-outline rotate-180">chevron_right</span>
+            </a>
+
+            <a href="#quiz-matcher" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px] text-outline">quiz</span>
+                <span>تست هوشمند خواب</span>
+              </div>
+              <span class="material-symbols-outlined text-[16px] text-outline rotate-180">chevron_right</span>
+            </a>
+
+            <a href="#craftsmanship-section" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px] text-outline">history_edu</span>
+                <span>داستان کارگاه آرونیکا</span>
+              </div>
+              <span class="material-symbols-outlined text-[16px] text-outline rotate-180">chevron_right</span>
+            </a>
+
+            <a href="#reviews-section" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px] text-outline">verified</span>
+                <span>تأییدیه پزشکان و نظرات</span>
+              </div>
+              <span class="material-symbols-outlined text-[16px] text-outline rotate-180">chevron_right</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Drawer Footer: Quick Call & Perks -->
+        <div class="p-4 border-t border-surface-container-high/60 bg-surface-container-low/40 flex flex-col gap-2.5">
+          <a href="#consultation-section" onclick="toggleMobileMenu(false)"
+            class="w-full py-2.5 px-3 rounded-xl bg-primary text-on-primary text-xs font-bold flex items-center justify-center gap-2 shadow-sm">
+            <span class="material-symbols-outlined text-[18px]">support_agent</span>
+            <span>مشاوره فیزیوتراپیست خواب</span>
+          </a>
+          <div class="flex items-center justify-between text-[11px] text-outline pt-1">
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> ۱۰۰ شب مهلت تست</span>
+            <a href="tel:02188224410" class="hover:text-primary font-bold text-on-surface">۰۲۱-۸۸۲۲۴۴۱۰</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
   <main class="w-full pt-[108px] sm:pt-[116px] bg-background min-h-screen">
     <div class="flex flex-col w-full overflow-hidden">
       <!-- 1. HERO SECTION: EXQUISITE BEDROOM UNVEILED (IMAGE_5 AS CLEAN HERO BACKDROP) -->
-      <section class="relative w-full min-h-[560px] sm:min-h-[640px] lg:min-h-[780px] flex items-center justify-between overflow-hidden">
-        <!-- Cinema Backdrop: Clean view of IMAGE_5 showing bed & airy minimalist bedroom on the right -->
+      <section class="relative w-full min-h-[500px] sm:min-h-[640px] lg:min-h-[780px] flex items-center justify-between overflow-hidden">
+        <!-- Cinema Backdrop: Clean view of bedroom and mattress -->
         <div class="absolute inset-0 w-full h-full">
           <img alt="اتاق خواب لوکس مینیمال و تخت خواب ارگونومیک آرونیکا"
-            class="w-full h-full object-cover object-[center_35%] filter brightness-[0.98] contrast-[1.03]"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_dmtl__1QfzeIFwDFDK4SGbkRq_sNig0U7zqJHRK9eNwN5pHOHw5Sa46II5ysbCvNwxxjIce6vzuJMxuyWAnkxieU2QO2EpYnp-GwOm06Y0kXvLzTRgz0vMnJDb1WPLSpFhevblkmHIgXXwNe8qmiS9YXQshKazgxvEmKaKVbXAULZEO-8xFCPJBt3x6YTgQwnI9lzDBPOKcLB89avU9-lgQGa78Yd7_OvUf_7o1A0451KTrtH7BpPA">
-          <!-- Gradient adjusted for Persian readability on the LEFT side, leaving the right side clear for the bed -->
+            class="w-full h-full object-cover object-[center_30%] sm:object-[center_35%] filter brightness-[0.98] contrast-[1.03]"
+            src="images/hero-bedroom.jpg">
+          <!-- Gradient: Soft glass wash that protects text while keeping bedroom photo clearly visible -->
           <div
-            class="absolute inset-0 bg-gradient-to-l from-transparent via-[#faf8ff]/70 to-[#faf8ff]/92 sm:to-[#faf8ff]/95 pointer-events-none">
+            class="absolute inset-0 bg-gradient-to-l from-transparent via-[#faf8ff]/45 to-[#faf8ff]/85 sm:via-[#faf8ff]/70 sm:to-[#faf8ff]/95 pointer-events-none">
           </div>
           <div
-            class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none">
+            class="absolute bottom-0 left-0 right-0 h-20 sm:h-32 bg-gradient-to-t from-background to-transparent pointer-events-none">
           </div>
         </div>
-        <!-- Hero Content: Positioned gracefully on the LEFT side with flex layout -->
+        <!-- Hero Content: Positioned centered/higher like desktop, giving clear view of the room -->
         <div
-          class="relative max-w-[1340px] w-full mx-auto px-4 sm:px-margin-mobile md:px-margin z-10 py-8 sm:py-12 lg:py-16 flex justify-end">
+          class="relative max-w-[1340px] w-full mx-auto px-4 sm:px-margin-mobile md:px-margin z-10 py-6 sm:py-12 lg:py-16 flex justify-center sm:justify-end">
           <div
-            class="w-full max-w-full sm:max-w-md text-right p-4 sm:p-5 rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/60">
-            <!-- Trust & E-commerce Eyebrow -->
+            class="w-[92%] sm:w-full max-w-sm sm:max-w-md text-right p-3.5 sm:p-5 rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/70">
+            <!-- Trust & E-commerce Eyebrow (hidden on mobile for maximum lightness) -->
             <div
-              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white/80 text-on-surface text-[11px] font-bold mb-3 shadow-sm">
+              class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/90 border border-white/80 text-on-surface text-[11px] font-bold mb-3 shadow-sm">
               <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span class="text-primary font-bold">فروش ویژه مستقیم از کارگاه</span>
+              <span class="text-primary font-bold">فروش مستقیم کارگاه</span>
               <span class="text-outline/40">•</span>
-              <span class="text-on-surface-variant font-medium">۱۰۰ شب تست در منزل با ضمانت بازگشت</span>
+              <span class="text-on-surface-variant font-medium">۱۰۰ شب تست خواب در منزل</span>
             </div>
             <!-- Hero Title -->
             <h1
-              class="text-2xl sm:text-3xl font-extrabold text-on-surface leading-tight tracking-tight mb-2.5 drop-shadow-sm">
+              class="text-lg sm:text-3xl font-extrabold text-on-surface leading-tight tracking-tight mb-2 sm:mb-2.5 drop-shadow-sm">
               خواب&nbsp;<span class="relative inline-block text-primary">دست‌ی ستون فقرات
                 <svg class="absolute -bottom-1 right-0 w-full h-2 text-primary-fixed -z-10" fill="none"
                   preserveAspectRatio="none" viewBox="0 0 240 12">
@@ -549,42 +669,40 @@
                 </svg>
               </span>
               <br>
-              <span class="text-lg sm:text-xl font-normal text-on-surface-variant">تشک‌های طبی هایبرید دست‌ساز
-                آرونیکا</span>
+              <span class="text-xs sm:text-xl font-normal text-on-surface-variant">تشک‌های طبی هایبرید دست‌ساز آرونیکا</span>
             </h1>
-            <!-- Subtitle -->
-            <p class="text-xs sm:text-sm text-on-surface-variant font-normal leading-relaxed mb-4 max-w-sm">
-              تلفیق دست‌دوزی ابریشم ارگانیک، لاتکس لانه زنبوری و فنربندی ۷ زون تیتانیوم اروپایی. فشار وارده به مهره‌های
-              کمری را به صفر برسانید و صبح بدون کوفتگی بیدار شوید.
+            <!-- Subtitle (hidden on mobile to keep card ultra-compact) -->
+            <p class="hidden sm:block text-xs sm:text-sm text-on-surface-variant font-normal leading-relaxed mb-4 max-w-sm">
+              تلفیق دست‌دوزی ابریشم ارگانیک، لاتکس لانه زنبوری و فنربندی ۷ زون تیتانیوم اروپایی برای تسکین دیسک کمر.
             </p>
             <!-- E-commerce Badges Bar -->
-            <div class="flex flex-wrap items-center gap-2 mb-4 text-xs">
+            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2.5 sm:mb-4 text-[10px] sm:text-xs">
               <div
-                class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/90 backdrop-blur-md border border-white shadow-sm font-semibold text-on-surface text-[11px]">
-                <span class="material-symbols-outlined text-primary text-[15px]">sell</span>
-                <span class="">شروع قیمت کارگاه از: <b class="text-primary font-bold">۲۴,۸۰۰,۰۰۰ تومان</b></span>
+                class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/95 backdrop-blur-md border border-white shadow-sm font-semibold text-on-surface text-[10px] sm:text-[11px]">
+                <span class="material-symbols-outlined text-primary text-[14px] sm:text-[15px]">sell</span>
+                <span>شروع قیمت کارگاه از: <b class="text-primary font-bold">۲۴,۸۰۰,۰۰۰ تومان</b></span>
               </div>
               <div
-                class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-500/10 backdrop-blur-md border border-amber-500/20 shadow-sm font-semibold text-amber-800 text-[11px]">
+                class="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-500/10 backdrop-blur-md border border-amber-500/20 shadow-sm font-semibold text-amber-800 text-[11px]">
                 <span class="material-symbols-outlined text-[15px] text-amber-600">credit_card</span>
-                <span class="">اقساط ۴ ماهه بدون سود و ضامن</span>
+                <span>اقساط ۴ ماهه بدون سود و ضامن</span>
               </div>
             </div>
             <!-- Store CTA Buttons -->
-            <div class="flex flex-wrap items-center gap-2.5 mb-4">
-              <a class="relative group inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-primary text-on-primary text-xs font-bold shadow-md shadow-primary/25 hover:bg-primary-container transition-all duration-300 transform hover:-translate-y-0.5"
-                href="#featured-mattresses">
-                <span class="material-symbols-outlined text-[17px]">shopping_cart</span>
-                <span class="">خرید آنلاین با ۱۰۰ شب تست رایگان</span>
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 mb-1 sm:mb-4">
+              <a class="relative group inline-flex items-center justify-center gap-1.5 py-2 sm:py-2.5 px-3.5 sm:px-4 rounded-xl bg-primary text-on-primary text-xs font-bold shadow-md shadow-primary/25 hover:bg-primary-container transition-all"
+                href="catalog.html">
+                <span class="material-symbols-outlined text-[16px] sm:text-[17px]">shopping_cart</span>
+                <span>خرید آنلاین با ۱۰۰ شب تست رایگان</span>
               </a>
-              <a class="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white/90 hover:bg-white text-on-surface text-xs font-semibold border border-outline-variant/60 shadow-sm transition-all duration-300"
-                href="#featured-mattresses">
+              <a class="hidden sm:inline-flex items-center justify-center gap-1.5 py-2.5 px-3.5 rounded-xl bg-white/90 hover:bg-white text-on-surface text-xs font-semibold border border-outline-variant/60 shadow-sm transition-all"
+                href="product.html">
                 <span class="material-symbols-outlined text-primary text-[17px]">price_check</span>
-                <span class="">مشاهده لیست قیمت و تخفیف‌ها</span>
+                <span>مشاهده لیست قیمت و تخفیف‌ها</span>
               </a>
             </div>
-            <!-- Quick Social Proof Metrics -->
-            <div class="flex items-center gap-4 pt-3 border-t border-outline-variant/30 text-right">
+            <!-- Quick Social Proof Metrics (hidden on mobile to save height) -->
+            <div class="hidden sm:flex items-center gap-4 pt-3 border-t border-outline-variant/30 text-right">
               <div>
                 <div class="text-base font-extrabold text-primary leading-none">۱۰۰ شب</div>
                 <div class="text-[10px] text-outline mt-0.5">تست خواب در اتاق شما</div>
@@ -599,7 +717,7 @@
                 <div class="flex items-center gap-1 text-amber-500 text-xs font-bold leading-none">
                   <span class="material-symbols-outlined text-[14px]"
                     style="font-variation-settings: 'FILL' 1;">star</span>
-                  <span class="">۴.۹ / ۵</span>
+                  <span>۴.۹ / ۵</span>
                 </div>
                 <div class="text-[10px] text-outline mt-0.5">۱۲,۰۰۰+ خریدار راضی</div>
               </div>
@@ -751,7 +869,7 @@
                 <div class="relative w-full h-44 sm:h-52 md:h-56 rounded-2xl overflow-hidden bg-surface-container-low mb-4 mt-2">
                   <img alt="تشک طبی کلود پلاس آرونیکا"
                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ4pBeaX4wa4VxG2A1rpdqmjVQZwYBgTz6iDmXzviFl1I8fKlNH3hY17rCDGNhBoQFyBZ8vDhVnjS5NNsfQMDItnXtP-Yy2p7x3dkDyYz7Xs_G3AoY5S01c28GWlpspvIOxlfA9v018-xaNKVfAN7xp4sfhxlRUne3JiqwaLBoqBBzKQBMhWHEtTEZlAmqaoiBq1YtS-5OIn0P_L51h-SNLMLZDpEIz34HRc96wetuMlJZ9pKulJ55Qw">
+                    src="images/mattress-cloud-plus-home.jpg">
                   <span
                     class="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-semibold text-emerald-700 shadow-sm flex items-center gap-1">
                     <span class="w-2 h-2 rounded-full bg-emerald-500"></span> موجود در انبار مرکزی
@@ -843,18 +961,20 @@
               </div>
               <div>
                 <!-- Product Image Frame -->
-                <div class="relative w-full h-44 sm:h-52 md:h-56 rounded-2xl overflow-hidden bg-surface-container-low mb-4 mt-3">
+                <a href="product.html" class="block relative w-full h-44 sm:h-52 md:h-56 rounded-2xl overflow-hidden bg-surface-container-low mb-4 mt-3">
                   <img alt="تشک ارتوپدیک اسپاین‌گارد پرو آرونیکا"
                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkng3RPky62VwVLMbvVd1yKqUH94LVEamHcO8T7Jvkx3Ffi7zOrqw2fBMr8AEujNWdlogCRQkgw6cbkaMlPwAXLpfVP5wVyF4WZ43GXifSpvSUkrdlfHKsWrrb511jacb1KYXCr3wn-JuZ3t1qG8p9w3otYVo4iUcXwKOViYc1R_CibYyTkyHUFxIkQ2pfW0Y_cx4fsZESbq3s55Sig6c5u5uGRRv6PhJHDZ10qMl-hn1Fk9dZeMKxPw">
+                    src="images/mattress-spineguard-home.jpg">
                   <span
                     class="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-semibold text-emerald-700 shadow-sm flex items-center gap-1">
                     <span class="w-2 h-2 rounded-full bg-emerald-500"></span> پرفروش‌ترین مدل درمانی
                   </span>
-                </div>
+                </a>
                 <!-- Title and Rating -->
                 <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-base sm:text-lg font-bold text-on-surface">تشک اسپاین‌گارد پرو (SpineGuard Pro)</h3>
+                  <h3 class="text-base sm:text-lg font-bold text-on-surface hover:text-primary transition-colors">
+                    <a href="product.html">تشک اسپاین‌گارد پرو (SpineGuard Pro)</a>
+                  </h3>
                   <div class="flex items-center gap-1 text-amber-500 text-xs font-bold">
                     <span class="material-symbols-outlined text-[16px]"
                       style="font-variation-settings: 'FILL' 1;">star</span>
@@ -903,18 +1023,16 @@
                   </div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  <button
-                    class="py-3 px-3 rounded-xl bg-primary text-on-primary text-xs font-bold hover:bg-primary-container transition-all flex items-center justify-center gap-1.5 shadow-md shadow-primary/25"
-                    type="button">
-                    <span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
-                    <span class="">افزودن به سبد خرید</span>
-                  </button>
-                  <button
-                    class="py-3 px-3 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold transition-colors flex items-center justify-center gap-1"
-                    type="button">
-                    <span class="material-symbols-outlined text-[16px] text-outline">straighten</span>
-                    <span class="">سفارش سایز دلخواه</span>
-                  </button>
+                  <a href="product.html"
+                    class="py-3 px-3 rounded-xl bg-primary text-on-primary text-xs font-bold hover:bg-primary-container transition-all flex items-center justify-center gap-1.5 shadow-md shadow-primary/25">
+                    <span class="material-symbols-outlined text-[18px]">visibility</span>
+                    <span>بررسی تخصصی و خرید</span>
+                  </a>
+                  <a href="catalog.html"
+                    class="py-3 px-3 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold transition-colors flex items-center justify-center gap-1">
+                    <span class="material-symbols-outlined text-[16px] text-outline">tune</span>
+                    <span>مشاهده در کاتالوگ</span>
+                  </a>
                 </div>
                 <div class="mt-2.5 text-center text-[11px] text-outline">
                   یا ۴ قسط ماهانه ۹,۹۵۰,۰۰۰ تومانی بدون سود
@@ -938,7 +1056,7 @@
                 <div class="relative w-full h-56 rounded-2xl overflow-hidden bg-surface-container-low mb-5 mt-2">
                   <img alt="تشک ارگانیک رویال لاتکس آرونیکا"
                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGEQdBIe9cSlwfIz98d2ssZ6QHN_fxOv0hL1PxRxU-TRohlXuBCAbXOIvXirf-DA0JVF2ol4qPJr0aGAPQJvp3pSBFSDFj6RIt9qUhpGu52Hkd3UVi43BKbGEgAj3UxRBcr_7ddzdHUqiOj9hX0AxFIc1TL47QsmrA-6xCshJiNnC6Sq_R-EcpQjgOk0_I0BUUPBwtUv8C-2XRv3bYexAYB-7GPv4XBjou2xQ6mWU5AGbKBQtahnCKNA">
+                    src="images/mattress-royal-latex-home.jpg">
                   <span
                     class="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-semibold text-emerald-700 shadow-sm flex items-center gap-1">
                     <span class="w-2 h-2 rounded-full bg-emerald-500"></span> موجود در انبار مرکزی
@@ -1051,7 +1169,7 @@
                 <div class="relative rounded-2xl overflow-hidden bg-slate-50 flex items-center justify-center">
                   <img alt="رندر سه‌بعدی لایه‌های تشک ارگونومیک آرونیکا"
                     class="w-full h-auto object-contain transition-transform duration-700" id="anatomy-main-img"
-                    src="https://lh3.googleusercontent.com/aida/AEtjO1XMxYRg-gbnu1DXKoA2KS4Q-03vjmjHCfieq3DCm4aaZC8Vvysr8Vw5MoZJoA8V7E-vfMTXnqqcsjBIGtV6-1qo_zIbQ-Z1pTLujfNORDQR9y4K4wVZqzp7lzX5eIncKUXy9lxdbkqLeBKY_zmzAuwSIo8zd_gbObgQwIDqIM2hC348-zSh8jeJxttV47TlitjmnjcDpKD4HKhaADbM7A5Gp3bnewBbCdRPzpo26URSxwCQOXQ4txs5pXc">
+                    src="images/mattress-layers-render.jpg">
                   <!-- Interactive Pulsing Hotspot Pins on the Layers -->
                   <button
                     class="hotspot-pulse absolute top-[16%] right-[32%] w-7 h-7 rounded-full bg-primary text-on-primary font-bold text-xs flex items-center justify-center shadow-lg transition-transform hover:scale-125 focus:outline-none"
@@ -1343,7 +1461,7 @@
             <div class="lg:col-span-6 relative">
               <div class="relative w-full h-64 sm:h-80 md:h-96 lg:h-[460px] rounded-[28px] sm:rounded-[32px] overflow-hidden shadow-2xl bg-surface-container">
                 <img alt="کارگاه تخصصی تولید و دست‌دوزی تشک آرونیکا" class="w-full h-full object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHQjQfEjQtjvV8v3mLM3zuHqDz9aWJnjPq6A-jBhXv-xJ3mUHHdwqZKkt-CZJYb_MeUsBVg6bOciDYjAbHxtOK78crl0ofEVyKkjy_NcxPmhpJCsvIaFwTnTTRFGCiJX_spbO3mTgKRywaKQQ8M5lG0lv81lZmhh9I9ypbR3nYXr5OxNO6Z9Z1iTWMI-kp548sfms5c_Z5EyHiytb-9irlAVUqm-EdV4zi0pWIpFbZ99wa_uQQUeU_Uw">
+                  src="images/workshop-artisan-home.jpg">
                 <div
                   class="absolute inset-0 bg-gradient-to-t from-[#131b2e]/80 via-transparent to-transparent flex flex-col justify-end p-8 text-on-primary">
                   <span class="text-xs font-bold text-primary-fixed-dim">آتلیه و کارگاه تولید مستقیم</span>
@@ -1973,6 +2091,35 @@
 
       console.log('[Aronika] Animation engine initialized ✓');
     })();
+
+    /* ── Mobile Menu Drawer Toggle ── */
+    function toggleMobileMenu(forceState) {
+      const drawer = document.getElementById('mobile-menu-drawer');
+      const backdrop = document.getElementById('mobile-menu-backdrop');
+      const panel = document.getElementById('mobile-menu-panel');
+      if (!drawer || !backdrop || !panel) return;
+
+      const isOpen = panel.classList.contains('translate-x-0');
+      const shouldOpen = forceState !== undefined ? forceState : !isOpen;
+
+      if (shouldOpen) {
+        drawer.classList.remove('pointer-events-none');
+        backdrop.classList.remove('opacity-0', 'pointer-events-none');
+        backdrop.classList.add('opacity-100', 'pointer-events-auto');
+        panel.classList.remove('translate-x-full');
+        panel.classList.add('translate-x-0');
+        document.body.style.overflow = 'hidden';
+      } else {
+        panel.classList.remove('translate-x-0');
+        panel.classList.add('translate-x-full');
+        backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+        backdrop.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          drawer.classList.add('pointer-events-none');
+          document.body.style.overflow = '';
+        }, 300);
+      }
+    }
   </script>
 
 

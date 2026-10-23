@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Vazirmatn:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Vazirmatn', 'Plus Jakarta Sans', system-ui, sans-serif;
+      }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "tertiary": "#006387",
+          "primary": "#006194",
+          "on-background": "#131b2e",
+          "surface-container-high": "#e2e7ff",
+          "primary-fixed-dim": "#93ccff",
+          "secondary-fixed": "#e7e2d9",
+          "surface-variant": "#dae2fd",
+          "on-primary-fixed-variant": "#004b73",
+          "on-error-container": "#93000a",
+          "error-container": "#ffdad6",
+          "surface-container-low": "#f2f3ff",
+          "secondary": "#615e57",
+          "secondary-container": "#e7e2d9",
+          "on-secondary-fixed": "#1d1b16",
+          "on-primary-container": "#fdfcff",
+          "on-surface": "#131b2e",
+          "primary-container": "#007bb9",
+          "on-surface-variant": "#3f4850",
+          "tertiary-fixed-dim": "#7bd0ff",
+          "on-secondary-container": "#67645d",
+          "on-primary": "#ffffff",
+          "tertiary-fixed": "#c4e7ff",
+          "surface-tint": "#006398",
+          "tertiary-container": "#007da9",
+          "surface-container-highest": "#dae2fd",
+          "on-tertiary": "#ffffff",
+          "on-tertiary-fixed": "#001e2c",
+          "error": "#ba1a1a",
+          "inverse-surface": "#283044",
+          "surface": "#faf8ff",
+          "inverse-primary": "#93ccff",
+          "on-secondary-fixed-variant": "#494640",
+          "inverse-on-surface": "#eef0ff",
+          "on-error": "#ffffff",
+          "outline": "#707881",
+          "on-tertiary-container": "#fcfcff",
+          "background": "#faf8ff",
+          "outline-variant": "#bfc7d2",
+          "surface-bright": "#faf8ff",
+          "primary-fixed": "#cce5ff",
+          "surface-container-lowest": "#ffffff",
+          "on-primary-fixed": "#001d31",
+          "surface-container": "#eaedff",
+          "secondary-fixed-dim": "#cbc6bd",
+          "on-tertiary-fixed-variant": "#004c69",
+          "surface-dim": "#d2d9f4",
+          "on-secondary": "#ffffff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-lg": "2rem",
+          "space-md": "1.25rem",
+          "gutter": "1.5rem",
+          "space-xs": "0.375rem",
+          "space-xl": "3.5rem",
+          "margin-mobile": "1.25rem",
+          "space-sm": "0.75rem",
+          "margin": "3rem",
+          "gutter-mobile": "1rem"
+        },
+        "fontFamily": {
+          "title-md": ["Plus Jakarta Sans"],
+          "title-lg": ["Plus Jakarta Sans"],
+          "headline-lg": ["Plus Jakarta Sans"],
+          "label-lg": ["Plus Jakarta Sans"],
+          "body-md": ["Plus Jakarta Sans"],
+          "headline-sm": ["Plus Jakarta Sans"],
+          "headline-md": ["Plus Jakarta Sans"],
+          "body-sm": ["Plus Jakarta Sans"],
+          "label-md": ["Plus Jakarta Sans"],
+          "display-hero-mobile": ["Plus Jakarta Sans"],
+          "headline-lg-mobile": ["Plus Jakarta Sans"],
+          "display-hero": ["Plus Jakarta Sans"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"]
+        },
+        "fontSize": {
+          "title-md": ["17px", {"lineHeight": "28px", "fontWeight": "500"}],
+          "title-lg": ["19px", {"lineHeight": "30px", "fontWeight": "600"}],
+          "headline-lg": ["40px", {"lineHeight": "56px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+          "label-lg": ["14px", {"lineHeight": "22px", "fontWeight": "600"}],
+          "body-md": ["14px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "headline-sm": ["22px", {"lineHeight": "34px", "fontWeight": "600"}],
+          "headline-md": ["28px", {"lineHeight": "42px", "fontWeight": "600"}],
+          "body-sm": ["12px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "label-md": ["12px", {"lineHeight": "18px", "fontWeight": "500"}],
+          "display-hero-mobile": ["36px", {"lineHeight": "50px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "headline-lg-mobile": ["28px", {"lineHeight": "40px", "fontWeight": "600"}],
+          "display-hero": ["56px", {"lineHeight": "76px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "label-sm": ["11px", {"lineHeight": "16px", "fontWeight": "500"}],
+          "body-lg": ["16px", {"lineHeight": "28px", "fontWeight": "400"}]
+        }
+      }
+    }
+  }
+</script>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TOP ANNOUNCEMENT & E-COMMERCE NAVIGATION -->
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+<div class="w-full bg-[#131b2e]/95 text-surface-container-high backdrop-blur-md px-gutter-mobile md:px-gutter py-2 flex items-center justify-between text-xs tracking-wide border-b border-white/5">
+<div class="hidden md:flex items-center gap-4 text-white/70">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[15px] text-emerald-400">local_shipping</span> ارسال رایگان سفیدپوش تا اتاق خواب</span>
+<span class="text-white/20">•</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[15px] text-amber-300">credit_score</span> خرید اقساطی ۴ ماهه اسنپ‌پی بدون کارمزد</span>
+</div>
+<div class="flex items-center gap-2 mx-auto md:mx-0 font-medium">
+<span class="material-symbols-outlined text-[15px] text-primary-fixed-dim">verified</span>
+<span>جشنواره فروش مستقیم کارگاه: ۱۵٪ تخفیف + ۱۰۰ شب تست در منزل با ضمانت استرداد</span>
+</div>
+<div class="hidden lg:flex items-center gap-4 text-white/80">
+<a class="hover:text-primary-fixed-dim transition-colors" href="#consultation-section">پشتیبانی: ۰۲۱-۸۸۲۲۴۴۱۰</a>
+<span class="text-white/20">•</span>
+<a class="hover:text-primary-fixed-dim transition-colors" href="#quiz-matcher">تست آنلاین تشک</a>
+</div>
+</div>
+<!-- Main Navbar (h-20 inner container matches pt-20 on main) -->
+<div class="bg-surface/90 backdrop-blur-2xl border-b border-surface-container-high/60 shadow-[0_4px_30px_-6px_rgba(0,30,60,0.06)]">
+<div class="h-20 max-w-[1340px] mx-auto px-margin-mobile md:px-margin flex items-center justify-between gap-space-md">
+<!-- Logo & Category Nav -->
+<div class="flex items-center gap-2.5 sm:gap-5 flex-nowrap shrink-0">
+<!-- Mobile Hamburger Toggle Button -->
+<button id="mobile-menu-btn" aria-label="منوی سایت" onclick="toggleMobileMenu(true)"
+  class="xl:hidden w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface transition-colors shrink-0"
+  type="button">
+  <span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+
+<a class="flex items-center gap-2.5 group shrink-0" data-path="home" href="index.html">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center text-on-primary shadow-md shadow-primary/25 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[22px]">bed</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-lg font-black text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">آرونیکا</span>
+<span class="text-[9px] text-outline font-semibold tracking-wider mt-0.5">ARONIKA SLEEP</span>
+</div>
+</a>
+<nav class="hidden xl:flex items-center gap-1 shrink-0 whitespace-nowrap" data-active-classes="bg-primary text-on-primary font-bold shadow-sm">
+<a class="px-2.5 py-1.5 rounded-lg text-xs font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all whitespace-nowrap" data-path="home" href="index.html">صفحه نخست</a>
+<a class="px-2.5 py-1.5 rounded-lg text-xs font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all whitespace-nowrap" data-path="shop" href="catalog.html">کاتالوگ محصولات</a>
+<a aria-current="page" class="px-2.5 py-1.5 rounded-lg text-xs transition-all bg-primary text-on-primary font-bold shadow-sm whitespace-nowrap" data-path="product-detail" href="product.html">بررسی تخصصی</a>
+<a class="px-2.5 py-1.5 rounded-lg text-xs font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all whitespace-nowrap" data-path="anatomy" href="#anatomy-section">آناتومی ۵ لایه</a>
+<a class="px-2.5 py-1.5 rounded-lg text-xs font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all whitespace-nowrap" data-path="quiz" href="#quiz-matcher">تست هوشمند خواب</a>
+<a class="px-2.5 py-1.5 rounded-lg text-xs font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all whitespace-nowrap" data-path="craftsmanship" href="#craftsmanship-section">داستان کارگاه</a>
+</nav>
+</div>
+<!-- E-commerce Action Icons & Buttons -->
+<div class="flex items-center gap-2.5 sm:gap-3.5">
+<!-- Wishlist Button -->
+<button aria-label="علاقه‌مندی‌ها" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-rose-600 transition-colors relative" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite_border</span>
+<span class="absolute top-1 left-1 w-2 h-2 rounded-full bg-rose-500"></span>
+</button>
+<!-- Cart Button with Count Badge -->
+<button aria-label="سبد خرید" class="relative flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-lowest border border-outline-variant/50 hover:border-primary/50 text-on-surface shadow-sm hover:shadow transition-all group" type="button">
+<div class="relative">
+<span class="material-symbols-outlined text-[22px] text-primary group-hover:scale-110 transition-transform">shopping_bag</span>
+<span class="absolute -top-1.5 -left-1.5 w-4 h-4 bg-rose-600 text-white rounded-full text-[10px] font-extrabold flex items-center justify-center shadow">۲</span>
+</div>
+<div class="hidden sm:flex flex-col text-right leading-none">
+<span class="text-[10px] text-outline">سبد خرید</span>
+<span class="text-xs font-bold text-on-surface">۳۹,۸۰۰,۰۰۰ ت</span>
+</div>
+</button>
+<!-- Quick Consultation CTA -->
+<a class="hidden md:inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-on-primary text-xs font-bold rounded-xl shadow-md shadow-primary/20 hover:bg-primary-container transition-all" href="#consultation-section">
+<span class="material-symbols-outlined text-[17px]">support_agent</span>
+<span>مشاوره فیزیوتراپیست</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Mobile Navigation Drawer & Backdrop -->
+    <div id="mobile-menu-drawer" class="fixed inset-0 z-[100] pointer-events-none transition-all duration-300">
+      <!-- Backdrop Overlay -->
+      <div id="mobile-menu-backdrop" onclick="toggleMobileMenu(false)"
+        class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+
+      <!-- Slide-out Drawer Panel (from right in RTL) -->
+      <div id="mobile-menu-panel"
+        class="absolute top-0 right-0 bottom-0 w-[310px] max-w-[85vw] bg-surface-container-lowest shadow-2xl flex flex-col justify-between translate-x-full transition-transform duration-300 ease-out pointer-events-auto border-l border-surface-container-high overflow-y-auto">
+        <div>
+          <!-- Drawer Header -->
+          <div class="p-4 border-b border-surface-container-high/60 flex items-center justify-between bg-surface-container-low/50">
+            <a class="flex items-center gap-2.5" href="index.html" onclick="toggleMobileMenu(false)">
+              <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center text-on-primary shadow-sm">
+                <span class="material-symbols-outlined text-[20px]">bed</span>
+              </div>
+              <div class="flex flex-col text-right">
+                <span class="text-base font-black text-on-surface leading-tight">آرونیکا</span>
+                <span class="text-[9px] text-outline font-semibold">ARONIKA SLEEP SHOP</span>
+              </div>
+            </a>
+            <button aria-label="بستن منو" onclick="toggleMobileMenu(false)"
+              class="w-9 h-9 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant transition-colors" type="button">
+              <span class="material-symbols-outlined text-[20px]">close</span>
+            </button>
+          </div>
+
+          <!-- Drawer Navigation Links -->
+          <div class="p-3 flex flex-col gap-1.5 text-right font-medium">
+            <a href="index.html" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs font-bold text-primary bg-primary/10 transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px]">home</span>
+                <span>صفحه نخست</span>
+              </div>
+              <span class="material-symbols-outlined text-[16px] rotate-180">chevron_right</span>
+            </a>
+
+            <a href="catalog.html" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs text-on-surface hover:bg-surface-container hover:text-primary transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px] text-primary">storefront</span>
+                <span>کاتالوگ و فروشگاه تشک‌ها</span>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-rose-500/10 text-rose-600 text-[10px] font-bold">۱۵٪ تخفیف</span>
+            </a>
+
+            <a href="product.html" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs text-on-surface hover:bg-surface-container hover:text-primary transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px] text-primary">bed</span>
+                <span>بررسی تخصصی اسپاین‌گارد پرو</span>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 text-[10px] font-bold">پرفروش</span>
+            </a>
+
+            <a href="#anatomy-section" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px] text-outline">layers</span>
+                <span>آناتومی ۵ لایه تشک</span>
+              </div>
+              <span class="material-symbols-outlined text-[16px] text-outline rotate-180">chevron_right</span>
+            </a>
+
+            <a href="#quiz-matcher" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px] text-outline">quiz</span>
+                <span>تست هوشمند خواب</span>
+              </div>
+              <span class="material-symbols-outlined text-[16px] text-outline rotate-180">chevron_right</span>
+            </a>
+
+            <a href="#craftsmanship-section" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px] text-outline">history_edu</span>
+                <span>داستان کارگاه آرونیکا</span>
+              </div>
+              <span class="material-symbols-outlined text-[16px] text-outline rotate-180">chevron_right</span>
+            </a>
+
+            <a href="#reviews-section" onclick="toggleMobileMenu(false)"
+              class="flex items-center justify-between p-3 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[20px] text-outline">verified</span>
+                <span>تأییدیه پزشکان و نظرات</span>
+              </div>
+              <span class="material-symbols-outlined text-[16px] text-outline rotate-180">chevron_right</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Drawer Footer: Quick Call & Perks -->
+        <div class="p-4 border-t border-surface-container-high/60 bg-surface-container-low/40 flex flex-col gap-2.5">
+          <a href="#consultation-section" onclick="toggleMobileMenu(false)"
+            class="w-full py-2.5 px-3 rounded-xl bg-primary text-on-primary text-xs font-bold flex items-center justify-center gap-2 shadow-sm">
+            <span class="material-symbols-outlined text-[18px]">support_agent</span>
+            <span>مشاوره فیزیوتراپیست خواب</span>
+          </a>
+          <div class="flex items-center justify-between text-[11px] text-outline pt-1">
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> ۱۰۰ شب مهلت تست</span>
+            <a href="tel:02188224410" class="hover:text-primary font-bold text-on-surface">۰۲۱-۸۸۲۲۴۴۱۰</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</header>
+<main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- BREADCRUMB & METADATA BAR -->
+<section class="w-full bg-surface-container-low/60 border-b border-surface-container-high/50 py-3.5 px-margin-mobile md:px-margin">
+<div class="max-w-[1320px] mx-auto flex flex-wrap items-center justify-between gap-3 text-on-surface-variant font-body-sm text-body-sm">
+<nav aria-label="مسیر صفحه" class="flex items-center gap-2 flex-wrap">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[17px]">home</span>
+<span>خانه</span>
+</a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-primary transition-colors" href="catalog.html">فروشگاه تشک‌ها</a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-primary transition-colors" href="#">تشک‌های ارتوپدیک تخصصی</a>
+<span class="text-outline-variant">/</span>
+<span class="font-label-md text-on-surface text-label-md">تشک اسپاین‌گارد پرو (SpineGuard Pro)</span>
+</nav>
+<div class="hidden sm:flex items-center gap-4 text-outline font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>کد محصول: ARN-9842</span>
+<span>•</span>
+<span>تولید محدود کارگاه پاییز ۱۴۰۳</span>
+</div>
+</div>
+</section>
+<!-- MAIN PRODUCT HERO SECTION -->
+<section class="w-full py-space-md lg:py-space-xl px-margin-mobile md:px-margin">
+<div class="max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-lg lg:gap-space-xl items-start">
+<!-- RIGHT: LUXURY PRODUCT GALLERY -->
+<div class="lg:col-span-7 flex flex-col gap-4">
+<!-- Main Stage Image Container -->
+<div class="relative w-full rounded-2xl overflow-hidden bg-surface-container shadow-xl aspect-[16/11] group">
+<img class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.02]" data-alt="Luxurious minimalist European bedroom flooded with soft morning sunlight, showcasing the high-end Aronika SpineGuard Pro mattress on a low floating natural wood platform bed. Neutral warm oat wall texture, calm sky-blue linen blanket, airy linen curtains, organic Japandi aesthetic, ultra-clean serene architecture." id="main-product-img" src="images/product-spineguard-hero.jpg"/>
+<!-- Floating Badges -->
+<div class="absolute top-4 right-4 flex flex-col gap-2 z-10 pointer-events-none">
+<div class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-md text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[18px]">bedtime</span>
+<span>۱۰۰ شب تست در منزل</span>
+</div>
+<div class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary/95 text-on-primary shadow-md font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>۱۰ سال ضمانت طلایی تعویض</span>
+</div>
+</div>
+<!-- Bottom Micro Water-test Indicator Badge -->
+<div class="absolute bottom-4 left-4 z-10">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-inverse-surface/85 backdrop-blur-md text-inverse-on-surface font-body-sm text-body-sm shadow-lg">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[18px]">water_drop</span>
+<span>تست صفر لرزش لیوان آب (Zero Motion Transfer)</span>
+</div>
+</div>
+<!-- Quick Zoom Hint -->
+<button aria-label="بزرگنمایی تصویر" class="absolute bottom-4 right-4 w-10 h-10 rounded-xl bg-surface-container-lowest/80 backdrop-blur-md text-on-surface flex items-center justify-center hover:bg-surface-container-lowest shadow-md transition-all">
+<span class="material-symbols-outlined text-[20px]">zoom_in</span>
+</button>
+</div>
+<!-- Thumbnails Ribbon -->
+<div class="grid grid-cols-4 gap-3">
+<!-- Thumb 1 (Active) -->
+<button class="gallery-thumb group relative rounded-xl overflow-hidden aspect-[4/3] bg-surface-container shadow-sm p-0.5 transition-all outline outline-2 outline-primary" onclick="switchGallery(0, this)">
+<img class="w-full h-full object-cover rounded-lg group-hover:opacity-90 transition-opacity" data-alt="Minimalist natural Japandi bedroom with SpineGuard Pro mattress on solid oak platform bed, warm neutral linen textures, soft morning window light." src="images/product-thumb-room.jpg"/>
+<span class="absolute inset-x-0 bottom-0 py-1 bg-inverse-surface/75 text-inverse-on-surface font-label-sm text-label-sm text-center">چیدمان اتاق</span>
+</button>
+<!-- Thumb 2 (Anatomy Diagram) -->
+<button class="gallery-thumb group relative rounded-xl overflow-hidden aspect-[4/3] bg-surface-container shadow-sm p-0.5 transition-all outline outline-2 outline-transparent hover:outline-outline-variant" onclick="switchGallery(1, this)">
+<img class="w-full h-full object-cover rounded-lg group-hover:opacity-90 transition-opacity" data-alt="Photorealistic 3D exploded isometric cross-section diagram of Aronika mattress showing 5 distinct layers: quilted silver thread silk surface, cooling gel memory foam, natural perforated latex, zoned titanium pocket springs, and high-density base." src="images/product-thumb-anatomy.jpg"/>
+<span class="absolute inset-x-0 bottom-0 py-1 bg-inverse-surface/75 text-inverse-on-surface font-label-sm text-label-sm text-center">آناتومی ۵ لایه</span>
+</button>
+<!-- Thumb 3 (Fabric Detail) -->
+<button class="gallery-thumb group relative rounded-xl overflow-hidden aspect-[4/3] bg-surface-container shadow-sm p-0.5 transition-all outline outline-2 outline-transparent hover:outline-outline-variant" onclick="switchGallery(2, this)">
+<img class="w-full h-full object-cover rounded-lg group-hover:opacity-90 transition-opacity" data-alt="Macro close-up shot of luxurious quilted silver thread silk mattress surface texture, ultra-fine organic antibacterial stitches, pristine soft tactile pattern." src="images/product-thumb-fabric.jpg"/>
+<span class="absolute inset-x-0 bottom-0 py-1 bg-inverse-surface/75 text-inverse-on-surface font-label-sm text-label-sm text-center">پارچه نانوسیلور</span>
+</button>
+<!-- Thumb 4 (Workshop Craft) -->
+<button class="gallery-thumb group relative rounded-xl overflow-hidden aspect-[4/3] bg-surface-container shadow-sm p-0.5 transition-all outline outline-2 outline-transparent hover:outline-outline-variant" onclick="switchGallery(3, this)">
+<img class="w-full h-full object-cover rounded-lg group-hover:opacity-90 transition-opacity" data-alt="Master Iranian artisan hand-tufting orthopedic mattress edge with natural wool yarn inside bright contemporary Aronika sleep atelier workshop." src="images/product-thumb-craft.jpg"/>
+<span class="absolute inset-x-0 bottom-0 py-1 bg-inverse-surface/75 text-inverse-on-surface font-label-sm text-label-sm text-center">دوخت دست‌ساز</span>
+</button>
+</div>
+<!-- Trust Highlights Strip Below Gallery -->
+<div class="grid grid-cols-3 gap-3 pt-2">
+<div class="flex items-center gap-2.5 p-3 rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">استاندارد Oeko-Tex</span>
+<span class="font-body-sm text-body-sm text-outline">فاقد گازهای فرمالدئید</span>
+</div>
+</div>
+<div class="flex items-center gap-2.5 p-3 rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">thermostat</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">فوم خنک‌کننده ژلی</span>
+<span class="font-body-sm text-body-sm text-outline">دفع حرارت و ضد تعریق</span>
+</div>
+</div>
+<div class="flex items-center gap-2.5 p-3 rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">ارسال سفیدپوش</span>
+<span class="font-body-sm text-body-sm text-outline">حمل تا روی تخت خواب</span>
+</div>
+</div>
+</div>
+</div>
+<!-- LEFT: PRODUCT DETAILS & PURCHASE CONFIGURATOR -->
+<div class="lg:col-span-5 flex flex-col gap-5">
+<!-- Header Info -->
+<div class="flex flex-col gap-2">
+<!-- Top Tags & Endorsements -->
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">health_and_safety</span>
+<span>تأییدیه کلینیکال ارگونومی و فیزیوتراپی</span>
+</div>
+<div class="flex items-center gap-1 text-amber-500 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">۴.۹</span>
+<span class="text-outline text-label-sm">(۱۸۰ نظر خریداران)</span>
+</div>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">
+            تشک اسپاین‌گارد پرو
+            <span class="block text-primary font-headline-sm text-headline-sm mt-1">SpineGuard Pro Mattress</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            مهندسی پیشرفته فنربندی منفرد تیتانیوم ۷ ناحیه‌ای؛ طراحی ارتوپدیک کلینیکال جهت تراز مهره‌های ستون فقرات، کاهش ۱۰۰ درصدی فشار روی دیسک کمر و احساس خوابیدن روی ابرهای ابریشمی.
+          </p>
+</div>
+<!-- FIRMNESS GAUGE (SPECIALTY SLEEP COMPONENT) -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">speed</span>
+              شاخص سفتی و ارگونومی:
+            </span>
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">
+              ۷.۵ از ۱۰ (متوسط متمایل به سفت طبی)
+            </span>
+</div>
+<!-- Visual Gauge Track -->
+<div class="relative w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="absolute inset-y-0 right-0 w-[75%] bg-gradient-to-l from-primary via-primary-container to-tertiary rounded-full"></div>
+<!-- Indicator Pin -->
+<div class="absolute top-0 right-[75%] -mr-1.5 w-3 h-3 bg-on-primary rounded-full ring-2 ring-primary shadow"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-outline">
+<span>بسیار نرم و ابری (۱)</span>
+<span class="text-primary font-bold">طبی استاندارد مهره‌ها (۷.۵)</span>
+<span>بسیار سخت ارتوپدیک (۱۰)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-low/70 p-2.5 rounded-xl">
+            توصیه شده توسط متخصصان برای افراد با وزن بین ۵۵ تا ۱۲۰ کیلوگرم، درد سیاتیک و گودی کمر.
+          </p>
+</div>
+<!-- SIZE SELECTOR -->
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">انتخاب ابعاد تشک:</span>
+<button class="text-primary hover:text-primary-container font-label-sm text-label-sm flex items-center gap-1" onclick="document.getElementById('size-guide-modal').showModal()">
+<span class="material-symbols-outlined text-[16px]">straighten</span>
+              راهنمای انتخاب ابعاد تخت
+            </button>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="size-options">
+<button class="size-pill py-2.5 px-3 rounded-xl bg-surface-container-lowest text-right flex flex-col gap-0.5 transition-all shadow-sm hover:shadow" onclick="selectSize(this, '۹۰ × ۲۰۰', '۲۶,۵۰۰,۰۰۰', '۲۹,۸۰۰,۰۰۰', '۶,۶۲۵,۰۰۰')">
+<span class="font-label-md text-label-md text-on-surface">۹۰ × ۲۰۰</span>
+<span class="font-body-sm text-body-sm text-outline">یک‌نفره استاندارد</span>
+</button>
+<button class="size-pill py-2.5 px-3 rounded-xl bg-surface-container-lowest text-right flex flex-col gap-0.5 transition-all shadow-sm hover:shadow" onclick="selectSize(this, '۱۲۰ × ۲۰۰', '۳۱,۲۰۰,۰۰۰', '۳۴,۵۰۰,۰۰۰', '۷,۸۰۰,۰۰۰')">
+<span class="font-label-md text-label-md text-on-surface">۱۲۰ × ۲۰۰</span>
+<span class="font-body-sm text-body-sm text-outline">یک‌ونیم نفره</span>
+</button>
+<!-- Selected Active Pill -->
+<button class="size-pill py-2.5 px-3 rounded-xl bg-primary text-on-primary text-right flex flex-col gap-0.5 transition-all shadow-md active-pill" onclick="selectSize(this, '۱۶۰ × ۲۰۰', '۳۹,۸۰۰,۰۰۰', '۴۴,۰۰۰,۰۰۰', '۹,۹۵۰,۰۰۰')">
+<span class="font-label-md text-label-md text-white font-bold flex items-center justify-between">
+                ۱۶۰ × ۲۰۰
+                <span class="material-symbols-outlined text-[16px]">check_circle</span>
+</span>
+<span class="font-body-sm text-body-sm text-white/80">دونفره کوئین (محبوب‌ترین)</span>
+</button>
+<button class="size-pill py-2.5 px-3 rounded-xl bg-surface-container-lowest text-right flex flex-col gap-0.5 transition-all shadow-sm hover:shadow" onclick="selectSize(this, '۱۸۰ × ۲۰۰', '۴۵,۴۰۰,۰۰۰', '۵۰,۲۰۰,۰۰۰', '۱۱,۳۵۰,۰۰۰')">
+<span class="font-label-md text-label-md text-on-surface">۱۸۰ × ۲۰۰</span>
+<span class="font-body-sm text-body-sm text-outline">کینگ ارگونومیک</span>
+</button>
+<button class="size-pill py-2.5 px-3 rounded-xl bg-surface-container-lowest text-right flex flex-col gap-0.5 transition-all shadow-sm hover:shadow" onclick="selectSize(this, '۲۰۰ × ۲۰۰', '۵۲,۰۰۰,۰۰۰', '۵۷,۵۰۰,۰۰۰', '۱۳,۰۰۰,۰۰۰')">
+<span class="font-label-md text-label-md text-on-surface">۲۰۰ × ۲۰۰</span>
+<span class="font-body-sm text-body-sm text-outline">سوپر کینگ هتلینگ</span>
+</button>
+<button class="size-pill py-2.5 px-3 rounded-xl bg-surface-container-low text-right flex flex-col gap-0.5 transition-all hover:bg-surface-container" onclick="document.getElementById('custom-size-modal').showModal()">
+<span class="font-label-md text-label-md text-primary flex items-center gap-1">
+                سایز سفارشی
+                <span class="material-symbols-outlined text-[16px]">tune</span>
+</span>
+<span class="font-body-sm text-body-sm text-outline">ابعاد اتاق شما</span>
+</button>
+</div>
+</div>
+<!-- PRICING & INSTALLMENTS CARD -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-md flex flex-col gap-3">
+<div class="flex items-end justify-between">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through" id="old-price">۴۴,۰۰۰,۰۰۰ تومان</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary" id="current-price">۳۹,۸۰۰,۰۰۰</span>
+<span class="font-label-md text-label-md text-on-surface">تومان</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="px-2.5 py-1 rounded-full bg-rose-600 text-white font-label-sm text-label-sm font-bold shadow-sm">
+                ۱۵٪ تخفیف جشنواره پاییزه کارگاه
+              </span>
+<span class="font-body-sm text-body-sm text-emerald-700">سود شما: ۴,۲۰۰,۰۰۰ تومان</span>
+</div>
+</div>
+<!-- SnappPay Installment Banner -->
+<div class="p-3 rounded-xl bg-surface-container flex items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-xs shrink-0">اقساط</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">پرداخت در ۴ قسط با اسنپ‌پی</span>
+<span class="font-body-sm text-body-sm text-outline">ماهانه <strong class="text-on-surface" id="installment-price">۹,۹۵۰,۰۰۰</strong> تومان بدون سود و چک</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_left</span>
+</div>
+<!-- Included Workshop Gifts Strip -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-emerald-600 text-[18px]">check_circle</span>
+<span><strong>هدیه ویژه:</strong> پد محافظ تشک تمام‌پنبه ضدآب تنفسی به ارزش ۱,۸۵۰,۰۰۰ تومان</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-emerald-600 text-[18px]">check_circle</span>
+<span><strong>ارسال رایگان سفیدپوش:</strong> حمل و جای‌گذاری داخل اتاق خواب توسط متخصصان آرونیکا</span>
+</div>
+</div>
+</div>
+<!-- ACTION BUTTONS -->
+<div class="flex flex-col sm:flex-row items-stretch gap-3">
+<button class="flex-1 py-4 px-6 rounded-2xl bg-primary text-on-primary font-label-lg text-label-lg font-bold shadow-lg shadow-primary/25 hover:bg-primary-container transition-all flex items-center justify-center gap-2 group" onclick="addToCartAnimation(this)">
+<span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform">shopping_bag</span>
+<span>افزودن به سبد خرید و تست ۱۰۰ شب</span>
+</button>
+<a class="py-4 px-5 rounded-2xl bg-secondary-fixed text-on-secondary-fixed hover:bg-secondary-fixed-dim font-label-md text-label-md font-semibold transition-all flex items-center justify-center gap-2 text-center" href="#consultation-modal" onclick="document.getElementById('consultation-dialog').showModal(); return false;">
+<span class="material-symbols-outlined text-[20px] text-primary">stethoscope</span>
+<span>مشاوره فیزیوتراپیست</span>
+</a>
+</div>
+<!-- Safe Checkout Reassurances -->
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm px-2 pt-1">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">lock</span> پرداخت کاملاً امن بانکی</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">swap_horizontal_circle</span> تعویض آسان بی‌قیدوشرط</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">handshake</span> ضمانت اصالت فوم و تیتانیوم</span>
+</div>
+</div>
+</div>
+</section>
+<!-- DEEP TECHNICAL TABS SECTION -->
+<section class="w-full bg-surface-container-low/50 py-space-xl px-margin-mobile md:px-margin" id="product-detail">
+<div class="max-w-[1320px] mx-auto flex flex-col gap-space-lg">
+<!-- Tab Header Switcher -->
+<div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none border-b border-surface-container-high" role="tablist">
+<button aria-selected="true" class="tab-btn px-5 py-3 rounded-2xl bg-surface-container-lowest text-primary font-label-lg text-label-lg font-bold shadow-sm whitespace-nowrap transition-all flex items-center gap-2" onclick="switchTab('anatomy', this)" role="tab">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+<span>۱. کالبدشناسی ۵ لایه تشک</span>
+</button>
+<button aria-selected="false" class="tab-btn px-5 py-3 rounded-2xl bg-transparent text-on-surface-variant hover:bg-surface-container font-label-lg text-label-lg font-medium whitespace-nowrap transition-all flex items-center gap-2" onclick="switchTab('specs', this)" role="tab">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+<span>۲. جدول مشخصات فنی کامل</span>
+</button>
+<button aria-selected="false" class="tab-btn px-5 py-3 rounded-2xl bg-transparent text-on-surface-variant hover:bg-surface-container font-label-lg text-label-lg font-medium whitespace-nowrap transition-all flex items-center gap-2" onclick="switchTab('trial', this)" role="tab">
+<span class="material-symbols-outlined text-[20px]">night_shelter</span>
+<span>۳. شرایط تست ۱۰۰ شب و گارانتی</span>
+</button>
+<button aria-selected="false" class="tab-btn px-5 py-3 rounded-2xl bg-transparent text-on-surface-variant hover:bg-surface-container font-label-lg text-label-lg font-medium whitespace-nowrap transition-all flex items-center gap-2" onclick="switchTab('reviews', this)" role="tab">
+<span class="material-symbols-outlined text-[20px]">reviews</span>
+<span>۴. دیدگاه‌های بالینی و خریداران (۱۸۰)</span>
+</button>
+</div>
+<!-- TAB 1: ANATOMY EXPLODED VIEW -->
+<div class="tab-panel grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center" id="tab-content-anatomy">
+<!-- 3D Exploded Cross-Section Diagram -->
+<div class="lg:col-span-6 rounded-3xl overflow-hidden bg-surface-container-lowest shadow-xl p-4 flex flex-col gap-3">
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-contain" data-alt="Photorealistic 3D exploded isometric cross-section diagram of Aronika mattress showing 5 distinct layers: quilted silver thread silk surface, cooling gel memory foam, natural perforated latex, zoned titanium pocket springs, and high-density base." src="images/product-anatomy-exploded.jpg"/>
+</div>
+<p class="font-body-sm text-body-sm text-outline text-center">
+            تصویر شماتیک مهندسی کالبدشکافی لایه‌های درونی تشک اسپاین‌گارد پرو با فناوری تیتانیوم
+          </p>
+</div>
+<!-- 5 Layer Detailed Interactive Breakdown -->
+<div class="lg:col-span-6 flex flex-col gap-3">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">مهندسی ارگونومیک</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">ساختار ۵ لایه تسکین‌دهنده فشار</h3>
+</div>
+<!-- Layer 1 -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold text-sm shrink-0">۱</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">پارچه ژاکارد گردباف ابریشم با نانوالیاف نقره (Silver-Infused)</h4>
+<span class="font-label-sm text-label-sm text-primary">ضدحساسیت</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                بافته شده از پنبه ۱۰۰٪ طبیعی و رشته‌های نقره خالص جهت از بین بردن ۹۹.۹٪ باکتری‌ها، دفع الکتریسیته ساکن بدن و تنظیم حرارت در طول شب.
+              </p>
+</div>
+</div>
+<!-- Layer 2 -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-bold text-sm shrink-0">۲</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">فوم مموری ژلی تنفس‌پذیر خنک‌کننده (Cooling Gel Memory)</h4>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">ضخامت ۵cm</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                سلول‌های باز متخلخل همراه با کپسول‌های خنک‌کننده مایع ژلی؛ توزیع یکنواخت نقاط فشار در استخوان لگن و شانه‌ها بدون تجمع گرمای بدن.
+              </p>
+</div>
+</div>
+<!-- Layer 3 -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-sm shrink-0">۳</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">لاتکس ۱۰۰٪ طبیعی مشبک ارگانیک بلژیکی</h4>
+<span class="font-label-sm text-label-sm text-secondary font-medium">دانسیته ۸۵kg</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                تهیه شده از شیره درخت هویا بدون مواد نفتی؛ با انعطاف‌پذیری بازگشتی فوری که مانع از حس گیر افتادن در تشک شده و جابجایی در خواب را آسان می‌سازد.
+              </p>
+</div>
+</div>
+<!-- Layer 4 -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-sm shrink-0">۴</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">فنربندی پاکتی منفرد تیتانیوم ۷ ناحیه‌ای (7-Zone Titanium Springs)</h4>
+<span class="font-label-sm text-label-sm text-primary font-bold">تراز ستون فقرات</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                بیش از ۱۱۰۰ فنر مجزا داخل کاور پارچه‌ای اسپان‌باند با مقاومت‌های مختلف متناسب با وزن سر، شانه‌ها، گودی کمر و زانوها جهت صفر کردن لرزش.
+              </p>
+</div>
+</div>
+<!-- Layer 5 -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-sm shrink-0">۵</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">پایه‌ نگهدارنده فوم متراکم با لبه‌های تقویت‌شده کناری</h4>
+<span class="font-label-sm text-label-sm text-outline">ضدنشست لبه‌ها</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                فوم فشرده HD با تقویت دیواره‌های جانبی دور تا دور تشک که امکان نشستن راحت روی لبه تشک بدون سر خوردن و افتادگی را فراهم می‌آورد.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB 2: SPECS TABLE -->
+<div class="tab-panel hidden flex-col gap-6" id="tab-content-specs">
+<div class="bg-surface-container-lowest rounded-3xl p-6 sm:p-8 shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6">مشخصات فنی و مهندسی تشک اسپاین‌گارد پرو</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+<div class="flex items-center justify-between py-3 border-b border-surface-container-high">
+<span class="font-label-md text-label-md text-outline">ارتفاع کلی تشک:</span>
+<span class="font-body-md text-body-md text-on-surface font-bold">۳۴ سانتی‌متر (± ۱ سانتی‌متر)</span>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-surface-container-high">
+<span class="font-label-md text-label-md text-outline">نوع فنربندی:</span>
+<span class="font-body-md text-body-md text-on-surface font-bold">پاکتی منفرد تیتانیوم کربن ۷ زون ارگونومیک</span>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-surface-container-high">
+<span class="font-label-md text-label-md text-outline">تحمل وزن استاندارد:</span>
+<span class="font-body-md text-body-md text-on-surface font-bold">تا ۱۴۰ کیلوگرم برای هر نفر (۲۸۰ کیلو مجموع)</span>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-surface-container-high">
+<span class="font-label-md text-label-md text-outline">نوع رویه و پارچه:</span>
+<span class="font-body-md text-body-md text-on-surface font-bold">ژاکارد لوکس ۱۲۰۰ گرم با بافت الیاف نقره و ابریشم طبیعی</span>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-surface-container-high">
+<span class="font-label-md text-label-md text-outline">لایه راحتی رویی:</span>
+<span class="font-body-md text-body-md text-on-surface font-bold">مموری‌فوم خنک‌کننده ژلی ۵ سانتی‌متر دانسیته ۶۰</span>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-surface-container-high">
+<span class="font-label-md text-label-md text-outline">لایه ارگانیک میانی:</span>
+<span class="font-body-md text-body-md text-on-surface font-bold">لاتکس طبیعی مشبک سوراخ‌دار تهویه‌پذیر ۳ سانتی‌متر</span>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-surface-container-high">
+<span class="font-label-md text-label-md text-outline">انتقال لرزش و حرکت:</span>
+<span class="font-body-md text-body-md text-emerald-700 font-bold">صفر مطلق (ایده‌آل برای زوج‌ها)</span>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-surface-container-high">
+<span class="font-label-md text-label-md text-outline">گواهینامه‌های بین‌المللی:</span>
+<span class="font-body-md text-body-md text-on-surface font-bold">OEKO-TEX 100، CertiPUR-US، ISO 9001</span>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-surface-container-high">
+<span class="font-label-md text-label-md text-outline">سیستم دیواره دور تشک:</span>
+<span class="font-body-md text-body-md text-on-surface font-bold">فوم فشرده پلی‌اورتان ضد افتادگی لبه (Edge Support)</span>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-surface-container-high">
+<span class="font-label-md text-label-md text-outline">مدت ضمانت‌نامه کتبی:</span>
+<span class="font-body-md text-body-md text-primary font-bold">۱۰ سال ضمانت بدون قیدوشرط تعویض هسته و فنر</span>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB 3: 100 NIGHT TRIAL -->
+<div class="tab-panel hidden flex-col gap-6" id="tab-content-trial">
+<div class="bg-surface-container-lowest rounded-3xl p-6 sm:p-10 shadow-sm flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold w-fit">آسودگی خاطر ۱۰۰ درصدی</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">آزمون ۱۰۰ شب خواب آرام در منزل شما</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl leading-relaxed">
+              ما در کارگاه آرونیکا معتقدیم بدن انسان برای انطباق عضلات و تنظیم گودی کمر با یک تشک طبی مهندسی‌شده، حداقل به ۳ تا ۴ هفته زمان نیاز دارد. از این رو شما تا ۱۰۰ شب می‌توانید تشک را بدون هیچ ریسکی در اتاق خواب خود تست نمایید.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+<div class="p-5 rounded-2xl bg-surface-container-low flex flex-col gap-3">
+<div class="w-12 h-12 rounded-2xl bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">bedtime</span>
+</div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">۱. خواب آسوده ۱۰۰ شب</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                تشک در بسته‌بندی سفیدپوش تحویل داده شده و فرصت دارید با خیال راحت کیفیت خواب خود را بسنجید.
+              </p>
+</div>
+<div class="p-5 rounded-2xl bg-surface-container-low flex flex-col gap-3">
+<div class="w-12 h-12 rounded-2xl bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+</div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">۲. پایش مستمر سلامت خواب</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                در روز ۳۰ام کارشناس ارگونومی با شما تماس گرفته و روند بهبود دردهای کمر را بررسی می‌کند.
+              </p>
+</div>
+<div class="p-5 rounded-2xl bg-surface-container-low flex flex-col gap-3">
+<div class="w-12 h-12 rounded-2xl bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">assignment_return</span>
+</div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">۳. تعویض یا استرداد وجه</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                در صورت عدم رضایت کامل، تشک توسط تیم ما باز پس گرفته شده و وجه شما بدون کسر ریالی مسترد می‌گردد.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB 4: REVIEWS & CLINICAL FEEDBACK -->
+<div class="tab-panel hidden flex-col gap-6" id="tab-content-reviews">
+<div class="bg-surface-container-lowest rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col gap-6">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">تجربیات خریداران و پزشکان</h3>
+<p class="font-body-sm text-body-sm text-outline mt-1">۱۸۰ دیدگاه ثبت‌شده از خریداران واقعی این محصول</p>
+</div>
+<button class="px-5 py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold shadow hover:bg-primary-container transition-all flex items-center gap-2" onclick="document.getElementById('add-review-modal').showModal()">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+              ثبت نظر و تجربه خواب شما
+            </button>
+</div>
+<!-- Doctor Endorsement Card -->
+<div class="p-5 rounded-2xl bg-secondary-fixed/50 flex flex-col sm:flex-row items-start gap-4">
+<div class="w-14 h-14 rounded-2xl bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px]">medical_services</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">دکتر آرش کیان‌فر</span>
+<span class="text-xs px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-bold">متخصص جراحی ستون فقرات و فیزیوتراپیست بالینی</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                «تشک اسپاین‌گارد پرو به واسطه چینش متوازن ۷ زون در لایه تیتانیوم، افتادگی ناحیه لوردوز کمری را خنثی کرده و اجازه ریکاوری عضلانی در فاز خواب عمیق را مهیا می‌سازد. من این مدل را به بیماران مبتلا به فتق دیسک L4-L5 توصیه می‌کنم.»
+              </p>
+</div>
+</div>
+<!-- Verified Buyer Reviews Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Review 1 -->
+<div class="p-5 rounded-2xl bg-surface-container-low flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-full bg-primary/20 text-primary font-bold flex items-center justify-center text-xs">ن.م</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">نگار محمدی</span>
+<span class="font-label-sm text-label-sm text-outline">خریدار سایز ۱۶۰ × ۲۰۰ • ۳ هفته پیش</span>
+</div>
+</div>
+<div class="flex text-amber-500">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                من سال‌ها با درد خشکی کمر بیدار می‌شدم. بعد از دو هفته خوابیدن روی این تشک دردم تقریباً محو شده. لرزش هم اصلاً به طرف دیگر منتقل نمی‌شود وقتی همسرم تکان می‌خورد. بسته‌بندی و تحویل تا داخل اتاق خواب هم بسیار محترمانه بود.
+              </p>
+</div>
+<!-- Review 2 -->
+<div class="p-5 rounded-2xl bg-surface-container-low flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-full bg-primary/20 text-primary font-bold flex items-center justify-center text-xs">پ.ر</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">پیمان رهنما</span>
+<span class="font-label-sm text-label-sm text-outline">خریدار سایز ۱۸۰ × ۲۰۰ • ۱ ماه پیش</span>
+</div>
+</div>
+<div class="flex text-amber-500">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                کیفیت پارچه و خنک ماندن در طول شب فوق‌العاده‌ست. اصلاً عرق نمی‌کنید. خرید اقساطی بدون بهره هم خیلی سریع در ۴ قسط فعال شد. کاملاً راضی هستم و به دوستانم پیشنهاد دادم.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CROSS-SELL / COMPLETE SLEEP SANCTUARY -->
+<section class="w-full py-space-xl px-margin-mobile md:px-margin">
+<div class="max-w-[1320px] mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+<div>
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold">پیشنهاد کارگاه آرونیکا</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-2">تکمیل اتاق خواب ارگونومیک شما</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">محصولات هماهنگ با تشک اسپاین‌گارد پرو جهت حداکثر بازدهی سلامت ستون فقرات</p>
+</div>
+<a class="text-primary hover:text-primary-container font-label-md text-label-md font-bold flex items-center gap-1" href="catalog.html">
+<span>مشاهده همه محصولات کالای خواب</span>
+<span class="material-symbols-outlined text-[18px]">west</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Companion Item 1 -->
+<div class="group rounded-3xl bg-surface-container-lowest p-4 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
+<div class="flex flex-col gap-3">
+<div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Luxury ergonomic cervical contour memory foam pillow with cooling ice-silk outer cover against minimal warm wood headboard." src="images/accessory-cervical-pillow.jpg"/>
+<span class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur text-xs font-bold text-on-surface">طبی گردن</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">بالش ارگونومیک مموری‌فوم خنک‌کننده (AeroRest)</h3>
+<p class="font-body-sm text-body-sm text-outline">حفظ زاویه ۱۲ درجه مهره‌های گردن با روکش ابریشم خنک</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-2 border-t border-surface-container-high">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline line-through">۴,۲۰۰,۰۰۰</span>
+<span class="font-label-lg text-label-lg font-bold text-primary">۳,۶۵۰,۰۰۰ ت</span>
+</div>
+<button class="px-4 py-2 rounded-xl bg-primary-fixed text-on-primary-fixed hover:bg-primary hover:text-on-primary font-label-sm text-label-sm font-bold transition-colors">
+              + افزودن همراه تشک
+            </button>
+</div>
+</div>
+<!-- Companion Item 2 -->
+<div class="group rounded-3xl bg-surface-container-lowest p-4 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
+<div class="flex flex-col gap-3">
+<div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Organic 100 percent natural cotton quilted breathable waterproof mattress protector fitted cleanly over a deep mattress." src="images/accessory-cotton-protector.jpg"/>
+<span class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-emerald-600 text-white text-xs font-bold">هدیه ویژه سبد خرید</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">پد محافظ تشک تنفسی ضدآب PureGuard</h3>
+<p class="font-body-sm text-body-sm text-outline">غشای نانوتنفسی ضدگردوغبار و مایعات با پارچه بامبو</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-2 border-t border-surface-container-high">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">ارزش: ۱,۸۵۰,۰۰۰ ت</span>
+<span class="font-label-lg text-label-lg font-bold text-emerald-700">رایگان ضمیمه تشک</span>
+</div>
+<span class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check</span> همراه سفارش
+            </span>
+</div>
+</div>
+<!-- Companion Item 3 -->
+<div class="group rounded-3xl bg-surface-container-lowest p-4 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
+<div class="flex flex-col gap-3">
+<div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist solid ash wood slatted ergonomic bed base frame showing curved flexible supportive slats in clean European styling." src="images/accessory-wooden-bedframe.jpg"/>
+<span class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur text-xs font-bold text-on-surface">سازگار با تشک</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">کفی تخت فنری چوب راش ارگونومیک</h3>
+<p class="font-body-sm text-body-sm text-outline">تیغه‌های منعطف چوب راش جهت تهویه مضاعف زیر تشک</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-2 border-t border-surface-container-high">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline line-through">۱۵,۲۰۰,۰۰۰</span>
+<span class="font-label-lg text-label-lg font-bold text-primary">۱۳,۴۰۰,۰۰۰ ت</span>
+</div>
+<button class="px-4 py-2 rounded-xl bg-primary-fixed text-on-primary-fixed hover:bg-primary hover:text-on-primary font-label-sm text-label-sm font-bold transition-colors">
+              + افزودن همراه تشک
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- QUICK CONSULTATION MODAL -->
+<dialog class="backdrop:bg-black/60 rounded-3xl p-0 overflow-hidden shadow-2xl max-w-lg w-[90%] border-0" id="consultation-dialog">
+<div class="bg-surface-container-lowest p-6 flex flex-col gap-4 text-right">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">مشاوره تخصصی با فیزیوتراپیست کارگاه</h3>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-outline hover:text-on-surface" onclick="document.getElementById('consultation-dialog').close()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        پیش از خرید، شرایط ستون فقرات، سابقه جراحی یا وزن خود را ثبت نمایید تا همکاران فیزیوتراپیست کارگاه آرونیکا بهترین مدل و درجه سفتی مناسب را به شما پیشنهاد دهند.
+      </p>
+<form class="flex flex-col gap-3" onsubmit="event.preventDefault(); alert('درخواست مشاوره ثبت شد. متخصصین ما طی کمتر از ۳۰ دقیقه با شما تماس خواهند گرفت.'); document.getElementById('consultation-dialog').close();">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-1">نام و نام خانوادگی:</label>
+<input class="w-full h-12 rounded-xl bg-surface-container-low px-3 font-body-md text-body-md text-on-surface border-0 focus:ring-2 focus:ring-primary" placeholder="مثال: علی رضایی" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-1">شماره تماس مستقیم:</label>
+<input class="w-full h-12 rounded-xl bg-surface-container-low px-3 font-body-md text-body-md text-on-surface border-0 focus:ring-2 focus:ring-primary" placeholder="۰۹۱۲۳۴۵۶۷۸۹" required="" type="tel"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-1">توضیح کوتاه درباره وضعیت کمر یا گردن (اختیاری):</label>
+<textarea class="w-full rounded-xl bg-surface-container-low p-3 font-body-sm text-body-sm text-on-surface border-0 focus:ring-2 focus:ring-primary" placeholder="سابقه دیسک، درد عضلانی یا ترجیح خوابیدن روی پهلو..." rows="2"></textarea>
+</div>
+<button class="w-full py-3.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold hover:bg-primary-container transition-all mt-2" type="submit">
+          ثبت درخواست تماس فوری فیزیوتراپیست
+        </button>
+</form>
+</div>
+</dialog>
+<!-- SIZE GUIDE MODAL -->
+<dialog class="backdrop:bg-black/60 rounded-3xl p-0 overflow-hidden shadow-2xl max-w-md w-[90%] border-0" id="size-guide-modal">
+<div class="bg-surface-container-lowest p-6 flex flex-col gap-4 text-right">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">راهنمای استانداردهای ابعاد تشک</h3>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-outline hover:text-on-surface" onclick="document.getElementById('size-guide-modal').close()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-2.5 font-body-sm text-body-sm text-on-surface-variant">
+<div class="p-2.5 rounded-xl bg-surface-container-low flex justify-between">
+<strong class="text-on-surface">۹۰ × ۲۰۰ cm:</strong>
+<span>یک‌نفره استاندارد برای نوجوان و بزرگسال</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low flex justify-between">
+<strong class="text-on-surface">۱۲۰ × ۲۰۰ cm:</strong>
+<span>یک‌ونیم نفره جادار (تک‌نفره سوپر)</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low flex justify-between">
+<strong class="text-on-surface">۱۶۰ × ۲۰۰ cm:</strong>
+<span>دونفره کوئین استاندارد (مناسب ۹۰٪ اتاق‌ها)</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low flex justify-between">
+<strong class="text-on-surface">۱۸۰ × ۲۰۰ cm:</strong>
+<span>دونفره کینگ (نهایت آزادی حرکت زوجین)</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low flex justify-between">
+<strong class="text-on-surface">۲۰۰ × ۲۰۰ cm:</strong>
+<span>سوپر کینگ مناسب اتاق‌های مستر لوکس</span>
+</div>
+</div>
+<button class="py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold mt-2" onclick="document.getElementById('size-guide-modal').close()">
+        متوجه شدم
+      </button>
+</div>
+</dialog>
+<!-- CUSTOM SIZE MODAL -->
+<dialog class="backdrop:bg-black/60 rounded-3xl p-0 overflow-hidden shadow-2xl max-w-md w-[90%] border-0" id="custom-size-modal">
+<div class="bg-surface-container-lowest p-6 flex flex-col gap-4 text-right">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">سفارش ابعاد اختصاصی کارگاه</h3>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-outline hover:text-on-surface" onclick="document.getElementById('custom-size-modal').close()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        اگر کلاف تخت شما غیراستاندارد است، خط تولید دستی آرونیکا تشک را دقیقاً در ابعاد مورد نظر شما تولید می‌نماید.
+      </p>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-1">عرض (سانتی‌متر):</label>
+<input class="w-full h-11 rounded-xl bg-surface-container-low px-3 font-body-md text-body-md border-0" placeholder="مثال: ۱۷۰" type="number"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-1">طول (سانتی‌متر):</label>
+<input class="w-full h-11 rounded-xl bg-surface-container-low px-3 font-body-md text-body-md border-0" placeholder="مثال: ۲۱۰" type="number"/>
+</div>
+</div>
+<button class="w-full py-3 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold mt-2" onclick="alert('ابعاد سفارشی دریافت گردید. کارشناسان جهت برآورد هزینه با شما تماس می‌گیرند.'); document.getElementById('custom-size-modal').close();">
+        ثبت و استعلام قیمت ابعاد سفارشی
+      </button>
+</div>
+</dialog>
+<!-- ADD REVIEW MODAL -->
+<dialog class="backdrop:bg-black/60 rounded-3xl p-0 overflow-hidden shadow-2xl max-w-md w-[90%] border-0" id="add-review-modal">
+<div class="bg-surface-container-lowest p-6 flex flex-col gap-4 text-right">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">ثبت تجربه خواب شما</h3>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-outline hover:text-on-surface" onclick="document.getElementById('add-review-modal').close()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex items-center gap-1 text-amber-500 justify-center py-2">
+<span class="material-symbols-outlined cursor-pointer text-[28px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined cursor-pointer text-[28px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined cursor-pointer text-[28px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined cursor-pointer text-[28px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined cursor-pointer text-[28px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<input class="w-full h-11 rounded-xl bg-surface-container-low px-3 font-body-md text-body-md border-0" placeholder="نام شما" type="text"/>
+<textarea class="w-full rounded-xl bg-surface-container-low p-3 font-body-sm text-body-sm border-0" placeholder="تجربه استفاده، وضعیت تسکین درد کمر یا کیفیت خواب..." rows="3"></textarea>
+<button class="w-full py-3 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold" onclick="alert('دیدگاه شما با موفقیت ثبت شد و پس از بررسی تیم کنترل کیفیت منتشر خواهد شد.'); document.getElementById('add-review-modal').close();">
+        ارسال دیدگاه
+      </button>
+</div>
+</dialog>
+<!-- INTERACTIVE LOGIC SCRIPT -->
+<script>
+    const galleryImages = [
+      {
+        src: "images/product-spineguard-hero.jpg",
+        alt: "Luxurious minimalist European bedroom flooded with soft morning sunlight, showcasing the high-end Aronika SpineGuard Pro mattress on a low floating natural wood platform bed. Neutral warm oat wall texture, calm sky-blue linen blanket, airy linen curtains, organic Japandi aesthetic, ultra-clean serene architecture."
+      },
+      {
+        src: "images/product-thumb-anatomy.jpg",
+        alt: "Photorealistic 3D exploded isometric cross-section diagram of Aronika mattress showing 5 distinct layers: quilted silver thread silk surface, cooling gel memory foam, natural perforated latex, zoned titanium pocket springs, and high-density base."
+      },
+      {
+        src: "images/product-thumb-fabric.jpg",
+        alt: "Macro close-up shot of luxurious quilted silver thread silk mattress surface texture, ultra-fine organic antibacterial stitches, pristine soft tactile pattern."
+      },
+      {
+        src: "images/product-thumb-craft.jpg",
+        alt: "Master Iranian artisan hand-tufting orthopedic mattress edge with natural wool yarn inside bright contemporary Aronika sleep atelier workshop."
+      }
+    ];
+
+    function switchGallery(index, element) {
+      const mainImg = document.getElementById('main-product-img');
+      mainImg.style.opacity = '0.3';
+      setTimeout(() => {
+        mainImg.setAttribute('src', galleryImages[index].src);
+        mainImg.setAttribute('data-alt', galleryImages[index].alt);
+        mainImg.style.opacity = '1';
+      }, 150);
+
+      document.querySelectorAll('.gallery-thumb').forEach(btn => {
+        btn.classList.remove('outline-primary');
+        btn.classList.add('outline-transparent');
+      });
+      element.classList.remove('outline-transparent');
+      element.classList.add('outline-primary');
+    }
+
+    function selectSize(btn, sizeName, currentPrice, oldPrice, installment) {
+      document.querySelectorAll('.size-pill').forEach(el => {
+        el.classList.remove('bg-primary', 'text-on-primary', 'active-pill');
+        el.classList.add('bg-surface-container-lowest');
+        const firstSpan = el.querySelector('span:first-child');
+        if (firstSpan) {
+          firstSpan.classList.remove('text-white', 'font-bold');
+          firstSpan.classList.add('text-on-surface');
+          const checkIcon = firstSpan.querySelector('.material-symbols-outlined');
+          if (checkIcon) checkIcon.remove();
+        }
+        const secondSpan = el.querySelector('span:last-child');
+        if (secondSpan) {
+          secondSpan.classList.remove('text-white/80');
+          secondSpan.classList.add('text-outline');
+        }
+      });
+
+      btn.classList.remove('bg-surface-container-lowest');
+      btn.classList.add('bg-primary', 'text-on-primary', 'active-pill');
+      const first = btn.querySelector('span:first-child');
+      if (first) {
+        first.classList.remove('text-on-surface');
+        first.classList.add('text-white', 'font-bold');
+        if (!first.querySelector('.material-symbols-outlined')) {
+          const icon = document.createElement('span');
+          icon.className = 'material-symbols-outlined text-[16px]';
+          icon.innerText = 'check_circle';
+          first.appendChild(icon);
+        }
+      }
+      const second = btn.querySelector('span:last-child');
+      if (second) {
+        second.classList.remove('text-outline');
+        second.classList.add('text-white/80');
+      }
+
+      document.getElementById('current-price').innerText = currentPrice;
+      document.getElementById('old-price').innerText = oldPrice + ' تومان';
+      document.getElementById('installment-price').innerText = installment;
+    }
+
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-bold');
+        b.classList.add('bg-transparent', 'text-on-surface-variant', 'font-medium');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.remove('bg-transparent', 'text-on-surface-variant', 'font-medium');
+      btn.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-bold');
+      btn.setAttribute('aria-selected', 'true');
+
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+      const activePanel = document.getElementById('tab-content-' + tabId);
+      if (activePanel) {
+        activePanel.classList.remove('hidden');
+        if (tabId === 'specs' || tabId === 'trial' || tabId === 'reviews') {
+          activePanel.classList.add('flex');
+        }
+      }
+    }
+
+    function addToCartAnimation(btn) {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = `<span class="material-symbols-outlined text-[20px] animate-spin">sync</span> در حال ثبت سفارش...`;
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = `<span class="material-symbols-outlined text-[20px]">check_circle</span> به سبد خرید اضافه شد (۱۰۰ شب تست فعال شد)`;
+        btn.classList.remove('bg-primary');
+        btn.classList.add('bg-emerald-600');
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.classList.remove('bg-emerald-600');
+          btn.classList.add('bg-primary');
+          btn.disabled = false;
+        }, 3000);
+      }, 700);
+    }
+  </script>
+</div></main>
+<!-- LUXURY FOOTER (FULL CARPENTRY / WORKSHOP STRUCTURE PRESERVED) -->
+<footer class="w-full bg-[#131b2e] text-surface-container-high pt-16 pb-8 border-t border-white/10">
+<div class="max-w-[1340px] mx-auto px-margin-mobile md:px-margin">
+<!-- Top Trust Bar -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-12 mb-12 border-b border-white/10 text-right">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-white/10 text-primary-fixed-dim flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">bedtime</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-white">۱۰۰ شب تست خواب در منزل</h4>
+<p class="text-[11px] text-white/60">امکان تعویض یا عودت وجه</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-white/10 text-primary-fixed-dim flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-white">۱۰ سال ضمانت طلایی تعویض</h4>
+<p class="text-[11px] text-white/60">تضمین عدم نشست اسفنج و فنر</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-white/10 text-primary-fixed-dim flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">local_shipping</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-white">ارسال سفیدپوش رایگان</h4>
+<p class="text-[11px] text-white/60">حمل تا داخل اتاق خواب در کشور</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-white/10 text-primary-fixed-dim flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">spa</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-white">الیاف ۱۰۰٪ ارگانیک</h4>
+<p class="text-[11px] text-white/60">گواهینامه اروپایی OEKO-TEX</p>
+</div>
+</div>
+</div>
+<!-- Main Footer Links Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-12 text-right">
+<div class="lg:col-span-4">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[20px]">bed</span>
+</div>
+<span class="text-lg font-bold text-white">کارگاه تخصصی تشک آرونیکا</span>
+</div>
+<p class="text-xs text-white/70 leading-relaxed mb-6 max-w-sm">
+          مهندسی پیشرفته خواب و تولید ارگانیک‌ترین تشک‌های طبی با استانداردهای کلینیکال اروپا؛ تبلور آرامش عمیق، سلامت ستون فقرات و سکوت مطلق شبانه در آتلیه طراحی آرونیکا.
+        </p>
+<div class="flex items-center gap-2 text-xs text-primary-fixed-dim font-medium">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span>ساخت اختصاصی متناسب با آناتومی بدن شما</span>
+</div>
+</div>
+<div class="lg:col-span-2">
+<h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">دسترسی سریع</h4>
+<ul class="space-y-2.5 text-xs text-white/70">
+<li><a class="hover:text-primary-fixed-dim transition-colors" href="catalog.html">فروشگاه و کاتالوگ محصولات</a></li>
+<li><a class="hover:text-primary-fixed-dim transition-colors" href="#product-detail">بررسی تخصصی تک محصول</a></li>
+<li><a class="hover:text-primary-fixed-dim transition-colors" href="#anatomy-section">آناتومی و لایه‌های ۵گانه</a></li>
+<li><a class="hover:text-primary-fixed-dim transition-colors" href="#quiz-matcher">تست هوشمند انتخاب تشک</a></li>
+<li><a class="hover:text-primary-fixed-dim transition-colors" href="#craftsmanship-section">داستان کارگاه و ساخت دستی</a></li>
+<li><a class="hover:text-primary-fixed-dim transition-colors" href="#consultation-section">درخواست ابعاد سفارشی</a></li>
+</ul>
+</div>
+<div class="lg:col-span-3">
+<h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">گواهی‌های پزشکی و بهداشتی</h4>
+<div class="space-y-2.5">
+<div class="flex items-start gap-2.5 p-3 bg-white/5 rounded-xl border border-white/5">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[20px]">verified</span>
+<div>
+<div class="text-xs font-semibold text-white">تأییدیه انجمن فیزیوتراپی ستون فقرات</div>
+<div class="text-[11px] text-white/60">تراز مهره‌های کمر و بالانس عضلانی</div>
+</div>
+</div>
+<div class="flex items-start gap-2.5 p-3 bg-white/5 rounded-xl border border-white/5">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[20px]">spa</span>
+<div>
+<div class="text-xs font-semibold text-white">گواهینامه OEKO-TEX Standard 100</div>
+<div class="text-[11px] text-white/60">فاقد مواد شیمیایی حساسیت‌زا و سمی</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-3">
+<h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">خبرنامه کلینیک خواب</h4>
+<p class="text-xs text-white/70 mb-3 leading-relaxed">دریافت راهنماهای تخصصی ارگونومی خواب و جشنواره‌های فصلی کارگاه آرونیکا.</p>
+<form class="flex flex-col gap-2" onsubmit="event.preventDefault(); alert('با سپاس، عضویت شما در خبرنامه ثبت گردید.');">
+<input class="w-full h-10 bg-white/10 text-white placeholder:text-white/40 text-right px-3.5 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-primary-fixed border border-white/10" placeholder="شماره موبایل یا ایمیل شما" required="" type="text"/>
+<button class="w-full h-10 bg-primary text-on-primary text-xs font-bold rounded-xl hover:bg-primary-container transition-all flex items-center justify-center gap-1 shadow-md" type="submit">
+            عضویت در باشگاه سلامت خواب
+          </button>
+</form>
+</div>
+</div>
+<!-- Copyright Bar -->
+<div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60 text-center sm:text-right">
+<p>© ۲۰۲۵ تمامی حقوق برای آتلیه و کارگاه تخصصی تشک و کالای خواب طبی آرونیکا محفوظ است.</p>
+<div class="flex items-center gap-4">
+<a class="hover:text-primary-fixed-dim transition-colors" href="#">حریم خصوصی</a>
+<span>•</span>
+<a class="hover:text-primary-fixed-dim transition-colors" href="#">شرایط ضمانت ۱۰ ساله</a>
+<span>•</span>
+<a class="hover:text-primary-fixed-dim transition-colors" href="#consultation-section">ارتباط با مهندسین خواب</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    /* ── Mobile Menu Drawer Toggle ── */
+    function toggleMobileMenu(forceState) {
+      const drawer = document.getElementById('mobile-menu-drawer');
+      const backdrop = document.getElementById('mobile-menu-backdrop');
+      const panel = document.getElementById('mobile-menu-panel');
+      if (!drawer || !backdrop || !panel) return;
+
+      const isOpen = panel.classList.contains('translate-x-0');
+      const shouldOpen = forceState !== undefined ? forceState : !isOpen;
+
+      if (shouldOpen) {
+        drawer.classList.remove('pointer-events-none');
+        backdrop.classList.remove('opacity-0', 'pointer-events-none');
+        backdrop.classList.add('opacity-100', 'pointer-events-auto');
+        panel.classList.remove('translate-x-full');
+        panel.classList.add('translate-x-0');
+        document.body.style.overflow = 'hidden';
+      } else {
+        panel.classList.remove('translate-x-0');
+        panel.classList.add('translate-x-full');
+        backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+        backdrop.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          drawer.classList.add('pointer-events-none');
+          document.body.style.overflow = '';
+        }, 300);
+      }
+    }
+</script>
+</body></html>
